@@ -2,7 +2,24 @@
 # -------------------------------------------
 
 # read file
-
 f=open('weather.csv')
-file = f.read()
-print(file)
+#file = f.read()
+#print(file)
+
+# get data
+days  = []
+min_T = []
+max_T = []
+
+header = f.readline()
+
+for line in f:
+    fields =line.split(",")
+    days.append(int(fields[0]))
+    min_T.append(int(fields[2]))
+    max_T.append(int(fields[1]))
+    
+print(days)
+print(min_T)
+print(max_T)
+    
