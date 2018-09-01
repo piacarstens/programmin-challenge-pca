@@ -2,13 +2,8 @@
 # -------------------------------------------
 import numpy as np
 
-
-# read file
-f=open('weather.csv')
-
-
-#file = f.read()
-#print(file)
+# read file 
+f = open('weather.csv')
 
 # get data
 days  = []
@@ -23,11 +18,8 @@ for line in f:
     min_T.append(int(fields[2]))
     max_T.append(int(fields[1]))
     
-#print(days)
-#print(min_T)
-#print(max_T)
-    
-# calculate difference between Tmax and Tmin
-dT=np.subtract(max_T,min_T)
+# get index of smallest temperature difference
+dT = list(np.subtract(max_T,min_T))
+idx_min_dT = dT.index(min(dT))
 
-print(dT)
+print('Day of minimum temperature spread: ', days[idx_min_dT] )
